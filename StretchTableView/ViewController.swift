@@ -11,40 +11,86 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    var kTableHeaderHeight:CGFloat = 300.0
     
-    let imageView:UIImageView = {
-
-        let imv = UIImageView(image: #imageLiteral(resourceName: "img1"))
-        imv.frame = CGRect(x: 0, y: -20, width: UIScreen.main.bounds.width, height: 300)
-        imv.contentMode = UIView.ContentMode.scaleToFill
-        imv.translatesAutoresizingMaskIntoConstraints = false
-        return imv
-    }()
+//    var imageView:UIImageView = {
+//
+//        let imv = UIImageView(image: #imageLiteral(resourceName: "img1"))
+//        imv.frame = CGRect(x: 0, y: -20, width: UIScreen.main.bounds.width, height: 300)
+//        imv.contentMode = UIView.ContentMode.scaleToFill
+//        imv.clipsToBounds = true
+//        return imv
+//    }()
     @IBOutlet weak var strechyTableView: UITableView!
 //    @IBOutlet weak var imageView: UIImageView!
-
+var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        strechyTableView.rowHeight = UITableView.automaticDimension
+        
+        headerView = strechyTableView.tableHeaderView
+        strechyTableView.tableHeaderView = nil
+        strechyTableView.addSubview(headerView)
+        
+        strechyTableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
+        strechyTableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
+        updateHeaderView()
         // Do any additional setup after loading the view.
         
-        strechyTableView.delegate = self
-        strechyTableView.dataSource = self
-        strechyTableView.backgroundColor = .white
-        
-        strechyTableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
-        strechyTableView.tableHeaderView = nil
-        strechyTableView.tableHeaderView = imageView
-        
+//        strechyTableView.delegate = self
+//        strechyTableView.dataSource = self
+//        strechyTableView.backgroundColor = .white
+//
+//
+//        strechyTableView.tableHeaderView = nil
+//        strechyTableView.tableHeaderView = imageView
+//
+//
+//        strechyTableView.contentInset = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+//          //strechyTableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
+//        strechyTableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
+       // updateHeaderView()
     }
 
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateHeaderView()
         
-        print(scrollView.contentOffset.y)
-        if scrollView.contentOffset.y < 0 {
-            strechyTableView.contentInset = UIEdgeInsets(top: -20 - scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
-
+//        print(scrollView.contentOffset.y, imageView.frame.origin.y)
+//        if scrollView.contentOffset.y < 0 {
+//            //strechyTableView.contentInset = UIEdgeInsets(top: -20 - scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
+//
+//            strechyTableView.tableHeaderView!.frame.origin.y = scrollView.contentOffset.y
+//
+//        } else {
+//            imageView.frame.origin.y = 0
+//        }
+    }
+    
+   
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+         return UITableView.automaticDimension
+    }
+   
+    
+    func updateHeaderView() {
+        
+        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: strechyTableView.bounds.width, height: kTableHeaderHeight)
+        if strechyTableView.contentOffset.y < -kTableHeaderHeight {
+            headerRect.origin.y = strechyTableView.contentOffset.y
+            headerRect.size.height = -strechyTableView.contentOffset.y
         }
+        
+        headerView.frame = headerRect
+//        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: strechyTableView.bounds.width, height: kTableHeaderHeight)
+//        if strechyTableView.contentOffset.y < -20 {
+//            headerRect.origin.y -= strechyTableView.contentOffset.y
+//            headerRect.size.height += -strechyTableView.contentOffset.y
+//        }
+//
+//        imageView.frame = headerRect
     }
 }
 

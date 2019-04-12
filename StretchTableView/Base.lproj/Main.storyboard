@@ -21,9 +21,25 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="agb-Wk-pSh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="Ned-JN-kfa">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="gsz-9L-pbB">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.81568627449999997" green="0.0039215686269999999" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gsz-9L-pbB" secondAttribute="trailing" id="EIT-7z-VdX"/>
+                                        <constraint firstAttribute="bottom" secondItem="gsz-9L-pbB" secondAttribute="bottom" id="VcO-iV-wnF"/>
+                                        <constraint firstItem="gsz-9L-pbB" firstAttribute="leading" secondItem="Ned-JN-kfa" secondAttribute="leading" id="d24-Ht-38h"/>
+                                        <constraint firstItem="gsz-9L-pbB" firstAttribute="top" secondItem="Ned-JN-kfa" secondAttribute="top" id="faa-Ju-i7D"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StretchyTableViewCell" rowHeight="100" id="GJz-2C-41a" customClass="StretchyTableViewCell" customModule="StretchTableView" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="328" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GJz-2C-41a" id="nRZ-RI-byo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.5"/>
@@ -55,4 +71,7 @@
             <point key="canvasLocation" x="108.69565217391305" y="20.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img1" width="2144" height="1206"/>
+    </resources>
 </document>
