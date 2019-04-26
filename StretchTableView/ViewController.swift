@@ -9,13 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     
     var kTableHeaderHeight:CGFloat = 300.0
     
-
+    
     @IBOutlet weak var strechyTableView: UITableView!
-var headerView: UIView!
+    var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,20 +28,20 @@ var headerView: UIView!
         strechyTableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
         strechyTableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
         updateHeaderView()
-
+        
     }
-
-
+    
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateHeaderView()
     }
     
-   
+    
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-         return UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
-   
+    
     
     func updateHeaderView() {
         
@@ -72,7 +72,7 @@ extension ViewController: UITableViewDataSource {
         
         return 100
     }
-
+    
 }
 
 extension ViewController: UITableViewDelegate {
