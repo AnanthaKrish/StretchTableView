@@ -58,11 +58,11 @@
 			children = (
 				18BCD94E226090EF00F045A7 /* AppDelegate.swift */,
 				18BCD950226090EF00F045A7 /* ViewController.swift */,
+				18BCD960226091A200F045A7 /* StretchyTableViewCell.swift */,
 				18BCD952226090EF00F045A7 /* Main.storyboard */,
 				18BCD955226090F000F045A7 /* Assets.xcassets */,
 				18BCD957226090F000F045A7 /* LaunchScreen.storyboard */,
 				18BCD95A226090F000F045A7 /* Info.plist */,
-				18BCD960226091A200F045A7 /* StretchyTableViewCell.swift */,
 			);
 			path = StretchTableView;
 			sourceTree = "<group>";
